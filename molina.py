@@ -4,7 +4,7 @@ import glob
 
 def encuentra():
 	listArchivos = []
-	for nombreArchivo in glob.glob('/afs/ictp.it/home/m/mmolina/shellexample/thehackerwithin-PyTrieste-4f54727/shellExample/cleardata/Data0211.txt'):
+	for nombreArchivo in glob.glob('/afs/ictp.it/home/m/mmolina/shellexample/thehackerwithin-PyTrieste-4f54727/shellExample/cleardata/*.txt'):
 		listArchivos.append(nombreArchivo)
 		
 	return listArchivos
@@ -17,7 +17,7 @@ def buscaN(s):
 	lineas= f.readlines()
 	#print lineas[4]
 	f.close()	
-	return lineas[4].find('F')
+	return lineas[4].find('N')
 
 
 def reemplazoArchivo():
@@ -30,8 +30,8 @@ def reemplazoArchivo():
 			f.close()			
 			lineas[4].replace('N','M')
 			f=open(nombreArchivo,'w')
-			#for i in lineas:
-			f.writelines(lineas)
+			for i in lineas:
+				f.write(i)
 			f.close()
 
 
